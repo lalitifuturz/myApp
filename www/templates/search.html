@@ -1,5 +1,20 @@
 <ion-view view-title="Search">
   <ion-content>
-    <h1>Search</h1>
+	<form ng-submit="doSearch()">
+		<div class="list">
+			<label class="item item-input">
+				  <span class="input-label">Search</span>
+				  <input type="text" ng-model="searchData.searchVal">
+			</label>
+			<label class="item">
+				<button class="button button-block button-positive" type="submit">Search</button>
+			</label>
+		</div>
+	</form>
+	 <ion-list>
+      <ion-item ng-repeat="movie in movies">
+        {{movie.title}}
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
