@@ -1,5 +1,10 @@
 <ion-view view-title="Testing">
   <ion-content>
-    <h1>Testing 1</h1>
+		
+		<ion-item ng-repeat="record in post">
+        <b>Name : </b>{{record.Name}} <br />
+		<b>City : </b>{{record.City}} <br />
+		<b>Country : </b> {{record.Country}}
+      </ion-item>     
   </ion-content>
 </ion-view>

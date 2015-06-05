@@ -1,0 +1,23 @@
+<ion-view view-title="Add">
+  <ion-content>
+	<form ng-submit="doAdd()">
+		<div class="list">
+			<label class="item item-input">
+			  <span class="input-label">Name</span>
+			  <input type="text" ng-model="studentData.Name">
+			</label>
+			<label class="item item-input">
+			  <span class="input-label">City</span>
+			  <input type="text" ng-model="studentData.City">
+			</label>
+			<label class="item item-input">
+			  <span class="input-label">Country</span>
+			  <input type="text" ng-model="studentData.Country">
+			</label>
+			<label class="item">
+			  <button class="button button-block button-positive" type="submit">Add</button>
+			</label>
+      </div>
+  </form>
+  </ion-content>
+</ion-view>

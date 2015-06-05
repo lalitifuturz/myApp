@@ -4,7 +4,11 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic','ngResource', 'starter.controllers' ])
+
+.factory("Post", function($resource) {
+  return $resource("http://www.w3schools.com/angular/customers.php");
+})
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,6 +23,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
 })
+
+
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -63,7 +69,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: "templates/testing.html",
-          controller: 'PlaylistsCtrl'
+          controller: 'testingCtrl'
+        }
+      }
+    })
+	
+	.state('app.addNew', {
+      url: "/add",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/add.html",
+		  controller: 'testingCtrl'
         }
       }
     })

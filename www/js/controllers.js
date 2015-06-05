@@ -82,8 +82,8 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
+.controller('PlaylistsCtrl', function($scope) {		
+	$scope.playlists = [
     { title: 'Entertainment', id: 1 },
     { title: 'Action', id: 2 },
     { title: 'Drama', id: 3 },
@@ -91,8 +91,20 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('testingCtrl', function($scope, Post) {			
+	$scope.studentData = {};	
+	
+	Post.get(function(data) {
+		$scope.post = data.records;		
+  });
+  
+  $scope.doAdd = function() {		
+	 Post.Save($scope.studentData);
+  }	
+})
+
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-	if ($stateParams.playlistId == 1){
+	if ($stateParams.playlistId == 1){	
 		$scope.movies = [
 		{ title: 'Entertainment 1', id: 1 },
 		{ title: 'Entertainment 2', id: 2 },
