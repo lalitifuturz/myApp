@@ -1,5 +1,8 @@
 angular.module('starter', ['ionic','starter.controllers'])
 
+.factory 'Post', ($resource) ->
+  $resource 'http://192.168.1.176/ionic/api/values/SelectAllStudent'
+  
 .run(($ionicPlatform) ->
   $ionicPlatform.ready ->
     # Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
