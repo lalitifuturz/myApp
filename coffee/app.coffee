@@ -1,7 +1,7 @@
 angular.module('starter', ['ionic','starter.controllers'])
 
-.factory 'Post', ($resource) ->
-  $resource 'http://192.168.1.176/ionic/api/values/SelectAllStudent'
+.factory('Post', ($resource) ->
+  $resource 'http://www.w3schools.com/angular/customers.php')
   
 .run(($ionicPlatform) ->
   $ionicPlatform.ready ->
