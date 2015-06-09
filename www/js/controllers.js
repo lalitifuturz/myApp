@@ -94,8 +94,8 @@ angular.module('starter.controllers', [])
 .controller('testingCtrl', function($scope, Post) {			
 	$scope.studentData = {};	
 	
-	Post.get(function(data) {
-		$scope.post = data.records;		
+	Post.get(function(data) {		
+		$scope.post = data.Students;		
   });
   
   $scope.doAdd = function() {		
