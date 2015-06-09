@@ -7,7 +7,7 @@
 angular.module('starter', ['ionic','ngResource', 'starter.controllers' ])
 
 .factory("Post", function($resource) {
-  return $resource("http://www.w3schools.com/angular/customers.php");
+  return $resource("http://180.211.97.84/ionincApp/api/Values/SelectAllStudents");
 })
 
 .run(function($ionicPlatform) {
