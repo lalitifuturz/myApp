@@ -1,0 +1,12 @@
+<ion-view view-title="Students">
+  <ion-content>
+		
+		<ion-item ng-repeat="record in post">
+		<b>Id : </b>{{record.id}} <br />
+        <b>Name : </b>{{record.Name}} <br />
+		<b>City : </b>{{record.City}} <br />
+		<b>Country : </b> {{record.Country}}<br />
+		<a href="#/app/edit/{{record.id}}" ng-submit="edit({{record.id}})">Edit</a>
+      </ion-item>     
+  </ion-content>
+</ion-view>

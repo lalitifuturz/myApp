@@ -7,7 +7,7 @@
 angular.module('starter', ['ionic','ngResource', 'starter.controllers' ])
 
 .factory("Post", function($resource) {
-  return $resource("http://180.211.97.84/ionincApp/api/Values/SelectAllStudents");
+  return $resource("http://192.168.1.176/ionic/api/student/:id");
 })
 
 .run(function($ionicPlatform) {
@@ -64,11 +64,11 @@ angular.module('starter', ['ionic','ngResource', 'starter.controllers' ])
       }
     })
 	
-	.state('app.testing', {
-      url: "/testing",
+	.state('app.Students', {
+      url: "/Students",
       views: {
         'menuContent': {
-          templateUrl: "templates/testing.html",
+          templateUrl: "templates/Students.html",
           controller: 'testingCtrl'
         }
       }
@@ -79,6 +79,16 @@ angular.module('starter', ['ionic','ngResource', 'starter.controllers' ])
       views: {
         'menuContent': {
           templateUrl: "templates/add.html",
+		  controller: 'testingCtrl'
+        }
+      }
+    })
+	
+	.state('app.edit', {
+      url: "/edit/:id",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/edit.html",
 		  controller: 'testingCtrl'
         }
       }

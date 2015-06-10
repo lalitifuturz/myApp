@@ -46,7 +46,7 @@ angular.module('starter.controllers', [])
   $scope.doSearch = function() { 	
 	if ($scope.searchData.searchVal == "Entertainment"){
 		$scope.movies = [
-		{ title: 'Entertainment 1', id: 1 },
+		{ title: 'Entertainment 11', id: 1 },
 		{ title: 'Entertainment 2', id: 2 },
 		{ title: 'Entertainment 3', id: 3 },
 		{ title: 'Entertainment 4', id: 4 }
@@ -84,7 +84,7 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistsCtrl', function($scope) {		
 	$scope.playlists = [
-    { title: 'Entertainment', id: 1 },
+    { title: 'Entertainment 111', id: 1 },
     { title: 'Action', id: 2 },
     { title: 'Drama', id: 3 },
     { title: 'Comedy', id: 4 }
@@ -94,13 +94,29 @@ angular.module('starter.controllers', [])
 .controller('testingCtrl', function($scope, Post) {			
 	$scope.studentData = {};	
 	
-	Post.get(function(data) {		
-		$scope.post = data.Students;		
+	Post.get(function(data) {
+		$scope.post = data.records;		
   });
   
-  $scope.doAdd = function() {		
-	 Post.Save($scope.studentData);
-  }	
+  // $scope.doAdd = function() {		
+	 // Post.Save($scope.studentData);
+  // }	
+  $scope.doAdd = function() {
+    var student = new Post($scope.studentData);
+    student.$save();
+  }
+  
+  $scope.edit = function (id) {
+    $http.get('http://192.168.1.70/ionincApp/api/student/"+id+"').success(function (data) {
+        $scope.Records = data;
+    });
+	}
+	
+  $scope.doUpdate = function() {
+    var student = new Put($scope.studentData);
+    student.$save();
+  }
+  
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
