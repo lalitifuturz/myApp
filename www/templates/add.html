@@ -4,18 +4,19 @@
 		<div class="list">
 			<label class="item item-input">
 			  <span class="input-label">Name</span>
-			  <input type="text" ng-model="studentData.Name">
+			  <input type="text" ng-model="studentData.Name" required>
 			</label>
 			<label class="item item-input">
 			  <span class="input-label">City</span>
-			  <input type="text" ng-model="studentData.City">
+			  <input type="text" ng-model="studentData.City" required>
 			</label>
 			<label class="item item-input">
 			  <span class="input-label">Country</span>
-			  <input type="text" ng-model="studentData.Country">
+			  <input type="text" ng-model="studentData.Country" required>
 			</label>
 			<label class="item">
 			  <button class="button button-block button-positive" type="submit">Add</button>
+			  <ng-md-icon icon="send" style="fill: pink" size="40"></ng-md-icon> 
 			</label>
       </div>
   </form>

@@ -6,7 +6,15 @@
         <b>Name : </b>{{record.Name}} <br />
 		<b>City : </b>{{record.City}} <br />
 		<b>Country : </b> {{record.Country}}<br />
-		<a href="#/app/edit/{{record.id}}" ng-submit="edit({{record.id}})">Edit</a>
+		<form ng-controller="testingCtrl" ng-submit="edit(record.id)">
+	<button id="btnedit" class="button" type="submit">Edit</button>
+	<!-- <a href="#/app/edit/{{record.id}}">Edit</a> -->
+</form> 
+<form ng-controller="testingCtrl" ng-submit="delete(record.id)">
+	<button id="btndelete" class="button" type="submit">Delete</button>
+	<!-- <a href="#/app/edit/{{record.id}}">Edit</a> -->
+</form> 
+		
       </ion-item>     
   </ion-content>
 </ion-view>

@@ -1,27 +1,28 @@
 <ion-view view-title="Edit">
   <ion-content>
 	<form ng-submit="doUpdate()">
-		<div class="list" ng-init="Records">		
+		<div ng-controller="testingCtrl">		
 		 <label class="item item-input">
 			  <span class="input-label">Id</span>			 
-			  <input type="text" ng-bind="record.id" ng-model="studentData.id">
+			  <input type="text" ng-model="studentData.id">
 			</label>
 			<label class="item item-input">
-			  <span class="input-label">Name</span>			 
-			  <input type="text" ng-bind="record.Name" ng-model="studentData.Name">
+			  <span class="input-label">{{title}}</span>			 
+			  <input type="text" ng-model="studentData.Name" required>
 			</label>
 			<label class="item item-input">
 			  <span class="input-label">City</span>
-			  <input type="text" ng-bind="record.City" ng-model="studentData.City">
+			  <input type="text" ng-model="studentData.City" required>
 			</label>
 			<label class="item item-input">
 			  <span class="input-label">Country</span>
-			  <input type="text" ng-bind="record.Country" ng-model="studentData.Country">
+			  <input type="text" ng-model="studentData.Country" required>
 			</label>
 			<label class="item">
 			  <button class="button button-block button-positive" type="submit">Update</button>
 			</label>
       </div>
   </form>
+		
   </ion-content>
 </ion-view>

@@ -91,32 +91,46 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('testingCtrl', function($scope, Post) {			
-	$scope.studentData = {};	
+.controller('testingCtrl', function($scope, Post, $window, $resource) {			
+	$scope.studentData = {};		
 	
-	Post.get(function(data) {
+	Post.get(function(data) {	
 		$scope.post = data.records;		
+		
   });
   
-  // $scope.doAdd = function() {		
-	 // Post.Save($scope.studentData);
-  // }	
   $scope.doAdd = function() {
     var student = new Post($scope.studentData);
     student.$save();
+	alert("Successfully inserted");	
+	$window.location.href = '#/app/Students';
   }
   
   $scope.edit = function (id) {
-    $http.get('http://192.168.1.70/ionincApp/api/student/"+id+"').success(function (data) {
-        $scope.Records = data;
-    });
+	return Post.query({ id: id }, function(data) { 
+	$scope.post = data;
+	$scope.title = "Welcome to this demo!";
+	// alert($scope.post);
+	// debugger;
+	$window.location.href = '#/app/edit/' + id;
+  })
 	}
 	
   $scope.doUpdate = function() {
-    var student = new Put($scope.studentData);
-    student.$save();
+  alert('do update' + $scope.studentData.id);
+   // var student = new Put($scope.studentData.id,$scope.studentData);
+    // student.$save();		 
+         Post.update({ id: 14 },$scope.studentData);
+		 // debugger;
   }
   
+  $scope.delete = function(id) {
+	  // alert('delete');
+               var Resource = $resource('http://192.168.1.70/ionincApp/api/student/', { id: id});
+               Resource.delete();
+			   alert("Successfully deleted");	
+				$window.location.href = '#/app/Students';
+            };
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {

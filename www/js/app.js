@@ -7,7 +7,29 @@
 angular.module('starter', ['ionic','ngResource', 'starter.controllers' ])
 
 .factory("Post", function($resource) {
-  return $resource("http://192.168.1.176/ionic/api/student/:id");
+  // return $resource("http://192.168.1.70/ionincApp/api/student/:id");
+  // return $resource('http://192.168.1.70/ionincApp/api/student/:id', {}, {
+          // query: {method:'GET',isArray:true}
+      // });
+	   return $resource('http://192.168.1.70/ionincApp/api/student/:id', {
+        //Default parameters
+        id: '@id'
+    }, {
+        //Actions
+        query: {
+            method: 'GET',
+            isArray: true
+        },
+        getById: {
+            method: 'PUT'
+        },
+        update: {
+            method: 'POST'
+        },
+		delete: {
+            method: 'DELETE'
+        }
+    });
 })
 
 .run(function($ionicPlatform) {
